@@ -1,8 +1,8 @@
 <template>
 <div id="counter">
     <p>{{count}}</p>
-    <button v-on:click="add">add</button>
-    <button v-on:click="del">del</button>
+    <button @click="add">add</button>
+    <button @click="del">del</button>
 </div>
 </template>
 <script>
@@ -16,10 +16,11 @@ export default {
    methods:{
      add:function(){
        this.count++
-       this.$emit('change', this.count)
+       this.$emit('change', 1)
      },
      del:function(){
        this.count--
+         this.$emit('change', -1)
      } 
    }
 }

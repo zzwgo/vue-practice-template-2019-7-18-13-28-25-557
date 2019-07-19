@@ -2,7 +2,6 @@
   <div id="app">
     <input placeholder="edit me" v-model.number="countitem">
     <counter-group :countitem="countitem"></counter-group>
-    <span>Total：{{total}}</span>
   </div>
 </template>
 <script>
@@ -13,7 +12,6 @@ export default {
   data:function(){
     return{
       countitem:0,
-      total:0
     };
   },
    methods:{
