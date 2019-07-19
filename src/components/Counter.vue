@@ -16,6 +16,7 @@ export default {
    methods:{
      add:function(){
        this.count++
+       this.$emit('change', this.count)
      },
      del:function(){
        this.count--
