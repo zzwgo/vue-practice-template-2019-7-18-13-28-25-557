@@ -1,32 +1,26 @@
 <template>
   <div id="app">
-     <p id="myId" ref="myId">{{count}}</p>
-  <button v-on:click="add">点我+</button>
-  <button v-on:click="del">点我-</button>
-  <button v-on:click="test">文本</button>
+    <input placeholder="edit me" v-model.number="countitem">
+    <counter-group :countitem="countitem"></counter-group>
+    <span>Total：{{total}}</span>
   </div>
 </template>
-
 <script>
 
+import counterGroup from './components/CounterGroup.vue'
 export default {
   name: 'app',
   data:function(){
     return{
-      count:0
+      countitem:0,
+      total:0
     };
   },
    methods:{
-     add:function(){
-       this.count++
-     },
-     del:function(){
-       this.count--
-     } ,
-     test:function(){
-        this.$refs.myId.innerText ="hello";
-     }
-   }
+   },
+   components: {
+    counterGroup
+  }
 }
 </script>
 
