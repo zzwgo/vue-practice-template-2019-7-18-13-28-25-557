@@ -1,7 +1,8 @@
 <template>
   <div id="counterGroup">
-    <div v-for="item in countitem" v-bind:key="item">
-      <counter @change="updateCounter($event)"></counter>
+    <input  v-model.number="counterNumber" @input="updateCounter" placeholder="edit me"  >
+    <div v-for="item in counterNumber" :key="item">
+      <counter ref="son" @changeTotal="updateTotal($event)"></counter>
     </div>
     <div>
     <span>Total:{{total}}</span>
@@ -15,21 +16,20 @@ export default {
   name: "counterGroup",
   data: function() {
     return {
-      count: 0,
-      total:0 
+      counterNumber:0,
+      total: 0,
     };
-  },
-  props: {
-    countitem: {
-      default:0
-    }
   },
   components: {
     counter
   },
   methods: {
-    updateCounter(val) {
+    updateTotal(val) {
         this.total=this.total+val
+    },
+    updateCounter(){
+      this.total=0,
+       this.$nextTick(() => {this.$refs.son.forEach(i=>i.count=0)})
     }
   }
 };

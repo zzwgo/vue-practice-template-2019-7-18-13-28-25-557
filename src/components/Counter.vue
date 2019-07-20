@@ -10,17 +10,18 @@ export default {
   name: 'counter',
   data:function(){
     return{
-      count:0
+      count:0,
+      aaaaaaaaaaaaaaaaaaaaaa:1
     };
   },
    methods:{
      add:function(){
        this.count++
-       this.$emit('change', 1)
+       this.$emit('changeTotal', 1)
      },
      del:function(){
        this.count--
-         this.$emit('change', -1)
+         this.$emit('changeTotal', -1)
      } 
    }
 }
